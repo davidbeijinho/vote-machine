@@ -1,20 +1,23 @@
 #include <Arduino.h>
+#include <ESP8266WiFi.h>
 
-const int LED_RED = D6;
-const int LED_YELLOW = D7;
-const int LED_GREEN = D8;
+// const char* ssid = "SSID_NAME";
+// const char* password = "PASSWORD";
 
 void setup()
 {
-  pinMode(LED_RED, OUTPUT);
-  pinMode(LED_GREEN, OUTPUT);
-  pinMode(LED_YELLOW, OUTPUT);
+  Serial.begin(115200);
 
-  digitalWrite(LED_RED, HIGH);
+  WiFi.begin(ENV_SSID, ENV_PASSWORD);
 
-  analogWrite(LED_YELLOW, 255);
+  if (WiFi.waitForConnectResult() != WL_CONNECTED)
+  {
+    Serial.printf("WiFi Failed!\n");
+    return;
+  }
 
-  analogWrite(LED_GREEN, 255 / 4);
+  Serial.print("IP Address: ");
+  Serial.println(WiFi.localIP());
 }
 
 void loop()
