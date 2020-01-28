@@ -29,6 +29,8 @@ void setup()
     });
 
     server.onNotFound(notFound);
+
+    server.begin();
 }
 
 void loop()
