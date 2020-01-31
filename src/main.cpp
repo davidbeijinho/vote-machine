@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <ESPAsyncWebServer.h>
+#include <FS.h>
 
 AsyncWebServer server(80);
 
@@ -24,8 +25,23 @@ void setup()
     Serial.print("IP Address: ");
     Serial.println(WiFi.localIP());
 
+    if (SPIFFS.begin())
+    {
+        Serial.println("SPIFFS Initialize");
+    }
+    else
+    {
+        Serial.println("SPIFFS Failed");
+    }
+
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-        request->send(200, "text/plain", "Hello, XXXLutz");
+        request->send(SPIFFS, "/index.html");
+    });
+    server.on("/index.js", HTTP_GET, [](AsyncWebServerRequest *request) {
+        request->send(SPIFFS, "/index.js");
+    });
+    server.on("/index.css", HTTP_GET, [](AsyncWebServerRequest *request) {
+        request->send(SPIFFS, "/index.css");
     });
 
     server.onNotFound(notFound);
