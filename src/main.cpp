@@ -6,6 +6,9 @@ const int LED_GREEN = D8;
 
 void setup()
 {
+  Serial.begin(115200);
+  Serial.println("Hello XXXLutz");
+
   pinMode(LED_RED, OUTPUT);
   pinMode(LED_GREEN, OUTPUT);
   pinMode(LED_YELLOW, OUTPUT);
