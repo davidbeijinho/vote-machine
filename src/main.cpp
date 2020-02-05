@@ -5,9 +5,9 @@
 
 AsyncWebServer server(80);
 
-const int LED_GREEN = D6;
+const int LED_GREEN = D8;
 const int LED_YELLOW = D7;
-const int LED_RED = D8;
+const int LED_RED = D6;
 
 const int MAX_POWER = 255;
 const int VOTE_OPTIONS = 3;
