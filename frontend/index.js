@@ -14,7 +14,7 @@ function App() {
   const [vote, setVote] = useLocalStorage("vote", null);
 
   const sendVote = (url, vote) => () => {
-    fetch(`/vote/${url}`)
+    fetch(`/vote/${url}`, { method: "POST" })
       .then(res => res.json())
       .then(() => {
         setVote(vote);
