@@ -1,13 +1,10 @@
-.button {
-  margin: 1rem;
-  flex: 1;
-}
-
 .icon {
   font-size: 15rem;
 }
 
-.container {
-  display: flex;
-	flex-wrap: wrap;
+.button {
+  margin: 1rem;
+  background:whitesmoke;
+  border: 1px solid black;
+  box-shadow: none;
 }
