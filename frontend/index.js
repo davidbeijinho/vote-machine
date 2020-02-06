@@ -22,24 +22,14 @@ function App() {
       .catch(console.error);
   };
 
-  return (
-    <>
-      {vote ? (
-        <Thanks vote={vote} />
-      ) : (
-        <div className="container">
-          <Button onClick={sendVote("green", happyVote)}>
-            <Icon type={happyVote} />
-          </Button>
-          <Button onClick={sendVote("yellow", normalVote)}>
-            <Icon type={normalVote} />
-          </Button>
-          <Button onClick={sendVote("red", sadVote)}>
-            <Icon type={sadVote} />
-          </Button>
-        </div>
-      )}
-    </>
+  return vote ? (
+    <Thanks vote={vote} />
+  ) : (
+    <div className="container">
+      <Button onClick={sendVote("green", happyVote)}><Icon type={happyVote} /></Button>
+      <Button onClick={sendVote("yellow", normalVote)}><Icon type={normalVote} /></Button>
+      <Button onClick={sendVote("red", sadVote)}><Icon type={sadVote} /></Button>
+    </div>
   );
 }
 
