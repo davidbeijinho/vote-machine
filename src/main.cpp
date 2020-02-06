@@ -61,15 +61,15 @@ void setup()
         request->send(SPIFFS, "/index.css");
     });
 
-    server.on("/vote/green", HTTP_GET, [](AsyncWebServerRequest *request) {
+    server.on("/vote/green", HTTP_POST, [](AsyncWebServerRequest *request) {
         VOTES[INDEX_GREEN] += 1;
         request->send(200, "application/json", "{\"color\":\"GREEN\",\"status\":1}");
     });
-    server.on("/vote/yellow", HTTP_GET, [](AsyncWebServerRequest *request) {
+    server.on("/vote/yellow", HTTP_POST, [](AsyncWebServerRequest *request) {
         VOTES[INDEX_YELLOW] += 1;
         request->send(200, "application/json", "{\"color\":\"YELLOW\",\"status\":1}");
     });
-    server.on("/vote/red", HTTP_GET, [](AsyncWebServerRequest *request) {
+    server.on("/vote/red", HTTP_POST, [](AsyncWebServerRequest *request) {
         VOTES[INDEX_RED] += 1;
         request->send(200, "application/json", "{\"color\":\"RED\",\"status\":1}");
     });
