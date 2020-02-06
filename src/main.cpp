@@ -1,9 +1,21 @@
 #include <Arduino.h>
+#include <FS.h>
 
-void setup() {
-  // put your setup code here, to run once:
+void setup()
+{
+    Serial.begin(115200);
+
+    bool formatted = SPIFFS.format();
+    if (formatted)
+    {
+        Serial.println("\n\nSuccess formatting");
+    }
+    else
+    {
+        Serial.println("\n\nError formatting");
+    }
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop()
+{
 }
