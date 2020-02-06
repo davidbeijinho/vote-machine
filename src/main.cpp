@@ -6,18 +6,18 @@ const int LED_GREEN = D8;
 
 void setup()
 {
-  Serial.begin(115200);
-  Serial.println("Hello XXXLutz");
+    Serial.begin(115200);
+    Serial.println("Hello XXXLutz");
 
-  pinMode(LED_RED, OUTPUT);
-  pinMode(LED_GREEN, OUTPUT);
-  pinMode(LED_YELLOW, OUTPUT);
+    pinMode(LED_RED, OUTPUT);
+    pinMode(LED_GREEN, OUTPUT);
+    pinMode(LED_YELLOW, OUTPUT);
 
-  digitalWrite(LED_RED, HIGH);
+    digitalWrite(LED_RED, HIGH);
 
-  analogWrite(LED_YELLOW, 255);
+    analogWrite(LED_YELLOW, 255);
 
-  analogWrite(LED_GREEN, 255 / 4);
+    analogWrite(LED_GREEN, 255 / 4);
 }
 
 void loop()
